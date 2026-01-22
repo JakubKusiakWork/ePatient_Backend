@@ -1,0 +1,53 @@
+id: "pilulka"
+name: "Pilulka.sk"
+searchUrlTemplate: "https://www.pilulka.sk/search?q={query}"
+rateLimitSeconds: 5
+
+metadata:
+  requiresJavascript: false
+  spa: false
+  description: "Pilulka.sk - Slovak online pharmacy"
+
+geolocation:
+  enable: false
+  promptUserForLocation: false
+
+selectors:
+  # Main search functionality
+  input: "input[name='q'], input.search-input"
+  
+  # Results container
+  resultsTable: ".product-list, .products-list"
+  resultRow: ".product-item, .product-box"
+  
+  # Product details - works for both search results AND product detail pages
+  title: ".product-name, .product-title, .product-box h3, article.product h3, h1[itemprop='name'], h1.product-name, h1"
+  price: ".price, .product-price, .price-final, [itemprop='price'], .price-box .price, span[class*='price']"
+  availability: ".availability, .stock-status, .badge, [class*='availability'], button[class*='buy'], .add-to-cart"
+  noResults: ".no-results, .empty-results, .search-no-results"
+
+scanTimeoutMs: 5000
+
+extraction:
+  iterateRows: ".product-item, .product-box, article.product"
+  fields:
+    pharmacyName:
+      selector: ".pharmacy-name, .seller-name"
+      type: "innerText"
+      description: "Name of pharmacy/seller"
+    title:
+      selector: ".product-name, .product-title, h3 a"
+      type: "innerText"
+      description: "Product name"
+    price:
+      selector: ".price, .product-price, .price-final"
+      type: "innerText"
+      description: "Product price"
+    stockStatus:
+      selector: ".availability, .stock-status, .in-stock, .badge"
+      type: "innerText"
+      description: "Stock availability status"
+    productUrl:
+      selector: "a.product-link, h3 a"
+      type: "href"
+      description: "Link to product detail"

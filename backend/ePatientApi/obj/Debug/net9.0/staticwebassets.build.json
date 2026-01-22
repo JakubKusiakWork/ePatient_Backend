@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "hhyRZbyyv/qDRtp1taq9wma04i7rUxUXS4igTyqOkwg=",
+  "Source": "ePatientApi",
+  "BasePath": "_content/ePatientApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

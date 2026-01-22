@@ -1,0 +1,13 @@
+@ePatientApi_HostAddress = http://localhost:5000
+
+GET {{ePatientApi_HostAddress}}/api/login
+Accept: application/json
+
+GET {{ePatientApi_HostAddress}}/api/register
+Accept: application/json
+
+GET {{ePatientApi_HostAddress}}/api/homepage
+Accept: application/json
+
+GET {{ePatientApi_HostAddress}}/api/homepage/export-pdf
+Accept: application/pdf
